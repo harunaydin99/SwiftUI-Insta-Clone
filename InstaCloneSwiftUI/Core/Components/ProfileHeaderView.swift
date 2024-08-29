@@ -15,7 +15,7 @@ struct ProfileHeaderView: View {
     
     var body: some View {
         VStack(spacing:10){
-            // Profil kartı
+            // Profil Kartı
             HStack{
                 Image(user.profileImageUrl ?? "")
                     .resizable()
