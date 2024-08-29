@@ -24,8 +24,8 @@ class EditProfileViewModel: ObservableObject{
     
     @Published var profileImage: Image?
     
-    @State var fullname = ""
-    @State var bio = ""
+    @Published var fullname = ""
+    @Published var bio = ""
     
     init(user:User){
         self.user = user
@@ -42,6 +42,19 @@ class EditProfileViewModel: ObservableObject{
     }
     
     func updateUserData() async throws {
+        
+        var data = [String: Any]()
+        
+        if !fullname.isEmpty && user.fullname != fullname{
+            data["fullname"] = fullname
+        }
+        if !bio.isEmpty && user.bio != bio{
+            data["bio"] = bio
+        }
+        
+        if !data.isEmpty{
+            try await Firestore.firestore().collection("users").document(user.id).updateData(data)
+        }
         
     }
     

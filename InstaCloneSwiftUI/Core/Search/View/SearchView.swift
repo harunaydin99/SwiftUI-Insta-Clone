@@ -17,7 +17,7 @@ struct SearchView: View {
             ScrollView{
                 LazyVStack{
                     ForEach(viewModel.users){ user in
-                        NavigationLink(value: user) {  // tıklanınca geçiş yapacağız. geçerken user değişkenini taşı
+                        NavigationLink(value: user) {   // tıklanınca geçiş yapacağız. geçerken user değişkenini taşı
                             HStack{
                               //  Image(user.profileImageUrl ?? "")
                                 Image(systemName: "person.circle")

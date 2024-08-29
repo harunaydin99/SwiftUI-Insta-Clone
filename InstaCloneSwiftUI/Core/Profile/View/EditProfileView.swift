@@ -34,7 +34,7 @@ struct EditProfileView: View {
                         .fontWeight(.semibold)
                     Spacer()
                     Button("Done"){
-                        
+                        Task{ try await viewModel.updateUserData()} 
                     }
                     .font(.subheadline)
                     .fontWeight(.bold)
